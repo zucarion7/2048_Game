@@ -1,0 +1,19 @@
+{
+  "name": "2048g",
+  "version": "1.0.0",
+  "description": "juego de 2048",
+  "main": "index.js",
+  "workspaces":[
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "start":"cd frontend && npm run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "2048"
+  ],
+  "author": "zucarion7",
+  "license": "ISC"
+}
