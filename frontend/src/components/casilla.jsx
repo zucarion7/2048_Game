@@ -2,12 +2,12 @@ import { useState } from 'react'
 
 import '../styles/casilla.css'
 
-function Casilla({data}) {
+function Casilla({children}) {
   const [count, setCount] = useState(0)
 
   return (
     <div className='casilla'>
-      <label>{data}</label>
+      {children}
     </div>
   )
 }
