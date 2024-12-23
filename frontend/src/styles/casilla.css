@@ -1,6 +1,12 @@
 .casilla{
-  display: block;
-  size: 100px 100px;
+  /* display: flex; */
+  /* align-items: center;
+  justify-content: center; */
+  flex:1;
+  size: 100% 100%;
   border: solid 2px;
   border-color: white;
+  font-size: 70px;
+  margin: 0px 10px 10px 0px;
+  padding: 10px;
 }

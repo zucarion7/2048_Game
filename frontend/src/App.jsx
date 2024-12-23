@@ -6,6 +6,33 @@ import {Tablero} from './components'
 
 function App() {
   const [count, setCount] = useState(0)
+  const size=[6,5]
+  const data=[
+    "",
+    "",
+    "4",
+    "2",
+    "32",
+    "",
+    "",
+    "4",
+    "2",
+    "",
+    "",
+    "4",
+    "2",
+    "",
+    "",
+    "4",
+    "2",
+    "",
+    "",
+    "4",
+    "2",
+    "",
+    "2",
+    ""
+  ]
 
   return (
     <>
@@ -16,7 +43,7 @@ function App() {
       </div>
       
       <div>
-        <Tablero></Tablero>
+        <Tablero size={size} data={data}></Tablero>
       </div>
     </>
   )

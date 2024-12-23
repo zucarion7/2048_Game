@@ -1,5 +1,12 @@
 #tablero{
-  display: block;
+  /* size:200px; */
+  /* justify-content: space-around; */
+  /* align-items: center; */
+
+  display: grid;
+  /* grid-template-columns: repeat(4, minmax(100px, 1fr));
+  grid-template-rows: repeat(3, minmax(100px, 1fr)); */
+
   border: solid 2px;
   padding: 10px;
   border-color: rgb(196, 42, 42);
