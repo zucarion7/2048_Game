@@ -1,0 +1,6 @@
+#tablero{
+  display: block;
+  border: solid 2px;
+  padding: 10px;
+  border-color: rgb(196, 42, 42);
+}
