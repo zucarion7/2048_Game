@@ -4,21 +4,16 @@ import {Casilla} from './index'
 
 function Tablero({size,data,actualizarData}) {
 
+  const dimension=size[0]*size[1]
+  const valorInicial=""
+  const randomValues=[2,4]
+  const probabilidadValues=[70,30]
+
   const validarPosibleMovimiento=()=>{
-    const dimension=size[0]*size[1]
 
-    const validacionPosicionI=(value)=>{
+    const validacionPosicion=(value,comparar)=>{
       for(let i=1;i<=size[1];i++){
-        if(value===i*size[0]-1){          
-          return false
-        }
-      }
-      return true
-    }
-
-    const validacionPosicionD=(value)=>{
-      for(let i=1;i<size[1];i++){
-        if(value===i*size[0]){          
+        if(value===i*comparar){          
           return false
         }
       }
@@ -40,11 +35,11 @@ function Tablero({size,data,actualizarData}) {
         if(value===data[posAbajo]) return true
       }
 
-      if(validacionPosicionI(posIzquierda)){
+      if(validacionPosicion(posIzquierda,size[0]-1)){
         if(value===data[posIzquierda]) return true
       }
 
-      if(validacionPosicionD(posDerecha)){
+      if(validacionPosicion(posDerecha,size[0])){
         if(value===data[posDerecha]){
           return true
         } 
@@ -72,14 +67,41 @@ function Tablero({size,data,actualizarData}) {
     return key==='ArrowUp' || key==='ArrowDown' || key==='ArrowRight' || key==='ArrowLeft' 
   }
 
+  const elegirNumero=()=> {
+    const sumaTotal = probabilidadValues.reduce((acc, prob) => acc + prob, 0);
+
+    const numeroAleatorio = Math.random() * sumaTotal;
+
+    let umbralAcumulado = 0;
+    for (let i = 0; i < probabilidadValues.length; i++) {
+        umbralAcumulado += probabilidadValues[i];
+        if (numeroAleatorio < umbralAcumulado) {
+            return randomValues[i]
+        }
+    }
+  }
+
+  const insertarNumero=()=>{
+    const posicionesVacias= data.reduce((acc, value, index) => {
+      if (value === valorInicial) {
+        acc.push(index)
+      }
+      return acc
+    }, [])
+    
+    const randomNumber=elegirNumero()
+    const randomPosicion=posicionesVacias[Math.floor(Math.random()*posicionesVacias.length)]
+    actualizarData(randomPosicion,randomNumber)
+  }
+
   const realizarMovimiento=(key)=>{
     
-    actualizarData(4,8)
 
-
+    //TODO realizar el movimiento de acuerdo a la key
+    //--------------
     
-    console.log(data)
-
+    insertarNumero()
+    
   }
 
   useEffect(() => {
