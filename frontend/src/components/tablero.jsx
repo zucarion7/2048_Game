@@ -108,11 +108,11 @@ function Tablero({size,data,actualizarData}) {
     
     validarEstadoJuego()
 
-    const clean=()=>{
+    // const clean=()=>{
       // console.log("finalizado")
-    }
+    // }
     
-    return clean()
+    // return clean()
   }, [data])
 
   return (
